@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Container, Row } from "react-bootstrap";
-import portDetailsData from "../../data/portfolio-details";
 import { useProjects } from '../../project_context';
 import { find_file_by_id } from '../../actions'
 const PortfolioDetails = ({ position, id }) => {
