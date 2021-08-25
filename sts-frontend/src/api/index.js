@@ -1,6 +1,6 @@
 import { Directus } from '@directus/sdk';
 
-const directus = new Directus('http://0.0.0.0:8055');
+const directus = new Directus('http://188.166.41.81:8055');
 
 
 async function getProjects() {
