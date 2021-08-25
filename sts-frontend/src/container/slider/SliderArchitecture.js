@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Col, Row} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import SliderSwiper from "../../components/swiper";
 import {heroSliderConfig} from "../../helper/heroSliderConfig";
 import { useProjects } from '../../project_context';
@@ -39,10 +40,10 @@ const SliderArchitecture = () => {
                                             </div>
 
                                             <div data-swiper-parallax="450" className="view-more-btn">
-                                                <a href={`${process.env.PUBLIC_URL + slide.btnLink}`}>
+                                                <Link  to="/">
                                                     <span>Bekijk het project</span>
                                                     <span className="btn-arrow"/>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </Col>

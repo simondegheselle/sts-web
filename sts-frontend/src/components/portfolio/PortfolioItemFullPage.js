@@ -11,10 +11,10 @@ const PortfolioItemFullPage = ({className, number, title, thumb, category, chara
                             <p className="bk_pra heading-font">{category}</p>
                             <h2 className="heading heading-h2 heading-font">
                                 <span className="post-number">{number}</span>
-                                <a href={`${process.env.PUBLIC_URL + '/portfolio-details'}`}>{title}</a>
+                                <a href={`${process.env.PUBLIC_URL + '/#/portfolio-details'}`}>{title}</a>
                             </h2>
                             <div className="fullpage-btn mt--130">
-                                <a href={`${process.env.PUBLIC_URL + '/portfolio-details'}`}>
+                                <a href={`${process.env.PUBLIC_URL + '/#/portfolio-details'}`}>
                                     View project <i className="btn-icon"/>
                                 </a>
                             </div>

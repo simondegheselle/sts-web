@@ -1,6 +1,6 @@
 import WOW from "wowjs";
 import React, {useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Error from "./pages/others/Error";
 import ScrollToTop from "./helper/scrollToTop";
 import PortfolioDetailsLeft from "./pages/portfolios/PortfolioDetailsLeft";
