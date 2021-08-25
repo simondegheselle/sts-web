@@ -46,7 +46,7 @@ const PortfolioDetails = ({ position, id }) => {
                         <div className="portfolio-right portfolio-details-gallery mt--n40">
                             {state.files && project.photo_gallery && project.photo_gallery.map((file_id, index) => {
                                 const file = find_file_by_id(state.files, file_id)
-                                console.log(`http://localhost:8055/assets/${file.id}`)
+                                console.log(`http://188.166.41.81:8055/assets/${file.id}`)
                                 return (
                                     <div className="text-right m-16 ">
                                         <img className="rounded-sm shadow-md" src={`http://localhost:8055/assets/${file.id}`} />

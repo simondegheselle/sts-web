@@ -45,7 +45,7 @@ const PortfolioFour = () => {
                     {projects && projects.filter(project => activeServiceType == -1 || activeServiceType == project.service_type).map(project => (
                             <Project
                                 project={project}
-                                thumb={`http://localhost:8055/assets/${project.background}`}
+                                thumb={`http://188.166.41.81:8055/assets/${project.background}`}
                             />
                     ))}
                 </div>
