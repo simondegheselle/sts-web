@@ -1,0 +1,35 @@
+import React from 'react';
+
+const HeaderConfigOne = () => {
+
+    const body = document.querySelector('body');
+    const html = document.querySelector('html');
+
+
+    const mobileMenuHandler = () => {
+        body.classList.add('popup-mobile-menu-wrapper');
+        html.style.overflow = 'hidden'
+    };
+
+    return (
+        <div className="header-right have-not-flex pl--35 pl_md--5 pl_sm--5">
+            {/* <div className="popup-search-wrap">
+                <button className="btn-search-click" onClick={() => {
+                    searchHandler()
+                }}>
+                    <i className="fa fa-search"/>
+                </button>
+            </div> */}
+
+            <div className="menu-hamburger popup-mobile-click light-version d-block d-lg-none">
+                <div onClick={() => {
+                    mobileMenuHandler()
+                }}>
+                    <i/>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default HeaderConfigOne;
