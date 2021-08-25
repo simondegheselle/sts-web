@@ -8,7 +8,6 @@ import { useHistory, useParams } from 'react-router-dom'
 
 const PortfolioDetailsLeft = () => {
     const { id } = useParams()
-    console.log(id)
     return (
         <Fragment>
             <Helmet>

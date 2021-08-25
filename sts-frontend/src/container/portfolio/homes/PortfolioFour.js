@@ -44,9 +44,8 @@ const PortfolioFour = () => {
                 <div className="grid grid-cols-2 gap-8">
                     {projects && projects.filter(project => activeServiceType == -1 || activeServiceType == project.service_type).map(project => (
                             <Project
-                                title={project.title}
+                                project={project}
                                 thumb={`http://localhost:8055/assets/${project.background}`}
-                                category={project.category}
                             />
                     ))}
                 </div>

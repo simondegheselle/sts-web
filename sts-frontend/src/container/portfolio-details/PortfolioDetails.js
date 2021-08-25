@@ -9,7 +9,7 @@ const PortfolioDetails = ({ position, id }) => {
     if (state.projects) {
         project = state.projects.filter(project => project.id == id)[0]
     }
-    console.log(project)
+    console.log(state)
     return (
 
         <div className="brook-portfolio-details bg_color--1 mt_sm--50">
@@ -17,7 +17,9 @@ const PortfolioDetails = ({ position, id }) => {
             <Container className="pt--100">
                 <div className=" mb-8">
                     <a href={`${process.env.PUBLIC_URL + "/"}`}>
+                        <button className="bg-gray-50 active:bg-green-700 p-2 rounded-sm text-dark">
                         Terug
+                    </button>
                     </a>
                 </div>
                 {project && <Row className="pt_md--5 pt_sm--5 pb--80">
@@ -40,12 +42,19 @@ const PortfolioDetails = ({ position, id }) => {
                     </Col>
 
                     <Col lg={8}
-                        className={`text-center text-lg-${position === "right" ? "left" : "right"} order-0 order-lg-${position === "right" ? 0 : 1}`}>
+                    >
                         <div className="portfolio-right portfolio-details-gallery mt--n40">
-                            {state.files && project.photo_gallery && project.photo_gallery.map((index, file_id) => {
+                            {state.files && project.photo_gallery && project.photo_gallery.map((file_id, index) => {
                                 const file = find_file_by_id(state.files, file_id)
-                                    console.log(`http://localhost:8055/assets/${file.id}`)
-                                return (<img src={`http://localhost:8055/assets/${file.id}`} />
+                                console.log(`http://localhost:8055/assets/${file.id}`)
+                                return (
+                                    <div className="text-right m-16 ">
+                                        <img className="rounded-sm shadow-md" src={`http://localhost:8055/assets/${file.id}`} />
+                                        <div className="m-4">
+                                            <div className="text-lg font-semibold		">{file.title}</div>
+                                            <div className="text-base	">{file.description}</div>
+                                        </div>
+                                    </div>
                                     // return (
                                     // <div className="portfolio-image mt--40" key={index}>
                                     //     <img
@@ -66,7 +75,7 @@ const PortfolioDetails = ({ position, id }) => {
                                 <div className="inner">
                                     <a href={`${process.env.PUBLIC_URL + "/"}`}>
                                         <p>Vorige</p>
-                                        <h3 className="heading heading-h3">Awe-inspiring <br /> Projects</h3>
+                                        <h3 className="heading heading-h3">Titel van het <br /> vorige project</h3>
                                     </a>
                                 </div>
                             </div>
@@ -74,7 +83,7 @@ const PortfolioDetails = ({ position, id }) => {
                                 <div className="inner">
                                     <a href={`${process.env.PUBLIC_URL + "/"}`}>
                                         <p>Volgende</p>
-                                        <h3 className="heading heading-h3">B-sharp High-end <br /> Audio</h3>
+                                        <h3 className="heading heading-h3">Titel volgende <br />project</h3>
                                     </a>
                                 </div>
                             </div>
