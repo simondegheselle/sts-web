@@ -1,6 +1,5 @@
 import React, {Fragment, useEffect} from 'react';
 import {Helmet} from "react-helmet";
-import brook from "../../data/brook.json";
 
 import LayoutDefault from "../../layouts/LayoutDefault";
 import Header from "../../components/header/HeaderFour";
