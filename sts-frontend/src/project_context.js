@@ -2,7 +2,6 @@ import * as React from 'react'
 const ProjectContext = React.createContext()
 
 function projectReducer(state, action) {
-    console.log(action)
 
     switch (action.type) {
         case 'GET_PROJECTS': {
@@ -19,6 +18,9 @@ function projectReducer(state, action) {
         case 'GET_FILES_IDS': {
             return { ...state, files_ids: action.data}
 
+        }
+        case 'GET_PROJECTS_FILES' : {
+            return { ...state, project_files: action.data}
         }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)

@@ -11,7 +11,6 @@ const SliderArchitecture = () => {
     if (healiner_projects && healiner_projects.length <= 1 ) {
         heroSliderConfig.autoplay = false
     }
-    console.log(state)
     const settings = {
         ...heroSliderConfig,
         pagination: {
@@ -29,7 +28,7 @@ const SliderArchitecture = () => {
                 {healiner_projects.map(slide => (<div className="swiper-slide" key={slide.id}>
                          <div
                             className="slide-inner slide-bg-image"
-                            style={{backgroundImage: `url(${'http://188.166.41.81:8055/assets/' + slide.background})`}}
+                            style={{backgroundImage: `url(${'http://localhost:8055/assets/' + slide.background})`}}
                         >
                             <Container fluid className="h-100">
                                 <Row className="h-100 align-items-center">

@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import Logo from "../header/elements/logo";
 
 import logoBlack from '../../assets/img/logo/brook-black.png';
+import menuData from "../../data/navbar"
 
 const PopupMobileMenu = () => {
 
-    const [menuData] = useState(require('../../data/navbar'));
 
     const closeMobileMenu = () => {
         const body = document.querySelector('body');

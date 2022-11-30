@@ -4,3 +4,7 @@
 @import "assets/css/ionicons.min.css";
 @import "assets/css/linea-font.css";
 @import "assets/scss/style";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

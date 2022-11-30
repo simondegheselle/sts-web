@@ -11,7 +11,6 @@ const PortfolioFour = () => {
     const { state } = useProjects()
 
     const projects = state.projects;
-    console.log(projects)
 
     return (
         <div className="bk-portfolio-with-caption-area ptb--120 ptb-md--80 ptb-sm--60 bg_color--1 bk-masonry-wrapper basic-thine-line">
@@ -45,7 +44,7 @@ const PortfolioFour = () => {
                     {projects && projects.filter(project => activeServiceType == -1 || activeServiceType == project.service_type).map(project => (
                             <Project
                                 project={project}
-                                thumb={`http://188.166.41.81:8055/assets/${project.background}`}
+                                thumb={`http://localhost:8055/assets/${project.background}`}
                             />
                     ))}
                 </div>

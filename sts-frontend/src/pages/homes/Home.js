@@ -9,9 +9,12 @@ import Services from "../../container/service/ServiceSeven";
 import LatestProject from '../../container/portfolio/homes/PortfolioFour'
 import ContactArea from "../../container/contact/ContactOne";
 import Footer from "../../container/footer/FooterFour";
+import { getProjects, getServiceTypes, getFiles, getFilesIds, getProjectFiles } from '../../api';
+import { useProjects } from '../../project_context';
 
 const Home = () => {
 
+    
     return (
         <Fragment>
             <Helmet>

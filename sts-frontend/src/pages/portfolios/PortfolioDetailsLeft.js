@@ -10,9 +10,6 @@ const PortfolioDetailsLeft = () => {
     const { id } = useParams()
     return (
         <Fragment>
-            <Helmet>
-                <title>Portfolio Details Left || Brook - React JS Creative Multipurpose Template</title>
-            </Helmet>
             <LayoutDefault className="template-color-4 template-font-1 bg_color--1" revealFooter={false}>
                 <PortfolioDetails id={id} position="left"/>
                 <Footer/>

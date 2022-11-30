@@ -1,5 +1,6 @@
 version: '3.2'
 services:
+  
   database:
     container_name: database
     image: postgres:12
@@ -48,7 +49,7 @@ services:
       DB_USER: 'directus'
       DB_PASSWORD: 'directus'
 
-      CACHE_ENABLED: 'true'
+      CACHE_ENABLED: 'false'
       CACHE_STORE: 'redis'
       CACHE_REDIS: 'redis://cache:6379'
 
@@ -59,6 +60,8 @@ services:
     build:
       context: ./sts-frontend
       dockerfile: Dockerfile
+    networks:
+      - directus
     ports:
       - '3003:80'
 

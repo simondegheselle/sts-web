@@ -2,13 +2,21 @@ import React from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import { useProjects } from '../../project_context';
 import { find_file_by_id } from '../../actions'
+import { instanceOf } from 'prop-types';
+import { Link } from 'react-router-dom';
 const PortfolioDetails = ({ position, id }) => {
     const { state } = useProjects()
     let project = {}
+    let prevProject = undefined
+    let nextProject = undefined
     if (state.projects) {
         project = state.projects.filter(project => project.id == id)[0]
+        const projectIndex = state.projects.findIndex(project => project.id == id)
+        prevProject = state.projects[(projectIndex-1)%state.projects.length]
+        nextProject = state.projects[(projectIndex+1)%state.projects.length]
     }
-    console.log(state)
+    
+    const project_files = state.project_files
     return (
 
         <div className="brook-portfolio-details bg_color--1 mt_sm--50">
@@ -44,48 +52,43 @@ const PortfolioDetails = ({ position, id }) => {
                     >
                         <div className="portfolio-right portfolio-details-gallery mt--n40">
                             {state.files && project.photo_gallery && project.photo_gallery.map((file_id, index) => {
-                                const file = find_file_by_id(state.files, file_id)
-                                console.log(`http://188.166.41.81:8055/assets/${file.id}`)
+                                const direct_file_id = project_files?.find(item => item.id == file_id)?.directus_files_id
+                                const file = state.files?.find(item => item.id == direct_file_id)
+
                                 return (
                                     <div className="text-right m-16 ">
-                                        <img className="rounded-sm shadow-md" src={`http://localhost:8055/assets/${file.id}`} />
+                                        <img className="rounded-sm shadow-md" src={`http://localhost:8055/assets/${direct_file_id}`} />
                                         <div className="m-4">
-                                            <div className="text-lg font-semibold		">{file.title}</div>
-                                            <div className="text-base	">{file.description}</div>
+                                            <div className="text-lg font-semibold		">{file?.title}</div>
+                                            <div className="text-base	">{file?.description}</div>
                                         </div>
-                                    </div>
-                                    // return (
-                                    // <div className="portfolio-image mt--40" key={index}>
-                                    //     <img
-                                    //         src={require('../../assets/img/portfolio/details/' + thumb)}
-                                    //         alt={portDetailsData.title}
-                                    //     />
-                                    // </div>
-                                )
+                                    </div>)
                             })}
                         </div>
                     </Col>
                 </Row>}
 
+                
+
                 <Row>
                     <Col lg={12}>
                         <div className="portfolio-nav-list pt--50 pb--150 pb_md--80 pb_sm--60 pt_md--5 pt_sm--5">
-                            <div className="portfolio-page prev">
+                            {prevProject && <div className="portfolio-page prev">
                                 <div className="inner">
-                                    <a href={`${process.env.PUBLIC_URL + "/"}`}>
+                                    <Link to={`/portfolio-detail/${prevProject.id}`}>
                                         <p>Vorige</p>
-                                        <h3 className="heading heading-h3">Titel van het <br /> vorige project</h3>
-                                    </a>
+                                        <h3 className="heading heading-h3">{prevProject.title}</h3>
+                                    </Link>
                                 </div>
-                            </div>
-                            <div className="portfolio-page next mt_sm--30">
+                            </div>}
+                            {nextProject && <div className="portfolio-page next mt_sm--30">
                                 <div className="inner">
-                                    <a href={`${process.env.PUBLIC_URL + "/"}`}>
+                                <Link to={`/portfolio-detail/${nextProject.id}`}>
                                         <p>Volgende</p>
-                                        <h3 className="heading heading-h3">Titel volgende <br />project</h3>
-                                    </a>
+                                        <h3 className="heading heading-h3">{nextProject.title}</h3>
+                                    </Link>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </Col>
                 </Row>

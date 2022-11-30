@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PortfolioItemFour = ({className, project, thumb}) => {
-    console.log(project.id)
     return (
         <div className={`portfolio with-caption no--padding h-full w-full hover-image-zoom ${className}`}>
             <div className="thumb mb--20 w-full h-full">

@@ -1,10 +1,14 @@
 import { Directus } from '@directus/sdk';
 
-const directus = new Directus('http://188.166.41.81:8055');
-
+const directus = new Directus('http://localhost:8055');
+const url = "http://localhost:8055"
 
 async function getProjects() {
     return await directus.items('projects').readMany();
+}
+
+async function getProjectFiles() {
+    return await directus.items('projects_files').readMany();
 }
 
 async function getServiceTypes() {
@@ -19,4 +23,4 @@ async function getFiles() {
 async function getFilesIds() {
     return await directus.items('directus_files_id').readMany();
 }
-export {getProjects, getFiles, getServiceTypes, getFilesIds}
+export {getProjects, getFiles, getServiceTypes, getFilesIds, getProjectFiles}

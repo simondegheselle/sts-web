@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import {isSticky} from '../../helper/isSticky';
+//import {isSticky} from '../../helper/isSticky';
 
 const HeaderContainerThree = ({children, classes, transparent}) => {
-    useEffect(() => {
-        window.addEventListener('scroll', isSticky);
+    // useEffect(() => {
+    //     window.addEventListener('scroll', isSticky);
 
-        return () => {
-            window.removeEventListener('scroll', isSticky);
-        }
-    });
+    //     return () => {
+    //         window.removeEventListener('scroll', isSticky);
+    //     }
+    // });
 
     return (
         <header className={`br_header header-left--align header-default clearfix header-architecture header-transparent light-logo--version header-fixed-width header-fixed-150 is-sticky sticky header-mega-menu ${classes}`}>

@@ -1,11 +1,12 @@
-FROM node:13.12.0-alpine as build
+FROM node:carbon
+
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY . ./
 
+COPY package*.json ./
 
-# production environment
-FROM nginx:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+CMD ["npm", "start"]
