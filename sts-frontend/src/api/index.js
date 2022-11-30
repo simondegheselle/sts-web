@@ -1,7 +1,7 @@
 import { Directus } from '@directus/sdk';
 
-const directus = new Directus('http://localhost:8055');
-const url = "http://localhost:8055"
+const directus = new Directus('http://104.248.86.83:8055');
+const url = "http://104.248.86.83:8055"
 
 async function getProjects() {
     return await directus.items('projects').readMany();

@@ -12,23 +12,17 @@ const PortfolioDetails = ({ position, id }) => {
     if (state.projects) {
         project = state.projects.filter(project => project.id == id)[0]
         const projectIndex = state.projects.findIndex(project => project.id == id)
-        prevProject = state.projects[(projectIndex-1)%state.projects.length]
-        nextProject = state.projects[(projectIndex+1)%state.projects.length]
+        prevProject = state.projects[(projectIndex - 1) % state.projects.length]
+        nextProject = state.projects[(projectIndex + 1) % state.projects.length]
     }
-    
+
     const project_files = state.project_files
     return (
 
         <div className="brook-portfolio-details bg_color--1 mt_sm--50">
 
             <Container className="pt--100">
-                <div className=" mb-8">
-                    <a href={`${process.env.PUBLIC_URL + "/"}`}>
-                        <button className="bg-gray-50 active:bg-green-700 p-2 rounded-sm text-dark">
-                        Terug
-                    </button>
-                    </a>
-                </div>
+
                 {project && <Row className="pt_md--5 pt_sm--5 pb--80">
                     <Col lg={4} className={`mt_md--40 mt_sm--40 order-1 order-lg-${position === "right" ? 1 : 0}`}>
                         <div className="portfolio-left bk-portfolio-details">
@@ -57,7 +51,7 @@ const PortfolioDetails = ({ position, id }) => {
 
                                 return (
                                     <div className="text-right m-16 ">
-                                        <img className="rounded-sm shadow-md" src={`http://localhost:8055/assets/${direct_file_id}`} />
+                                        <img className="rounded-sm shadow-md" src={`http://104.248.86.83:8055/assets/${direct_file_id}`} />
                                         <div className="m-4">
                                             <div className="text-lg font-semibold		">{file?.title}</div>
                                             <div className="text-base	">{file?.description}</div>
@@ -68,27 +62,31 @@ const PortfolioDetails = ({ position, id }) => {
                     </Col>
                 </Row>}
 
-                
+
 
                 <Row>
                     <Col lg={12}>
                         <div className="portfolio-nav-list pt--50 pb--150 pb_md--80 pb_sm--60 pt_md--5 pt_sm--5">
-                            {prevProject && <div className="portfolio-page prev">
+                            <div className="portfolio-page prev">
+
                                 <div className="inner">
-                                    <Link to={`/portfolio-detail/${prevProject.id}`}>
-                                        <p>Vorige</p>
-                                        <h3 className="heading heading-h3">{prevProject.title}</h3>
-                                    </Link>
+                                    {prevProject &&
+                                        <Link to={`/portfolio-detail/${prevProject.id}`}>
+                                            <p>Vorige</p>
+                                            <h3 className="heading heading-h3">{prevProject.title}</h3>
+                                        </Link>
+                                    }
                                 </div>
-                            </div>}
-                            {nextProject && <div className="portfolio-page next mt_sm--30">
+                            </div>
+                            <div className="portfolio-page next mt_sm--30">
                                 <div className="inner">
-                                <Link to={`/portfolio-detail/${nextProject.id}`}>
+                                    {nextProject && <Link to={`/portfolio-detail/${nextProject.id}`}>
                                         <p>Volgende</p>
                                         <h3 className="heading heading-h3">{nextProject.title}</h3>
                                     </Link>
+                                    }
                                 </div>
-                            </div>}
+                            </div>
                         </div>
                     </Col>
                 </Row>
