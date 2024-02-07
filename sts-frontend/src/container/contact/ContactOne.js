@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import Input from "../../components/input";
 
 const ContactOne = () => {
+    // TODO on submit create item in test
     return (
         <div className="bk-contact-area section-pb-xl bg_color--1 ptb--120 ">
             <Container>

@@ -6,7 +6,7 @@ const PortfolioItemFour = ({ className, project, thumb }) => {
         <div className='flex-col  h-full' ><div className={`portfolio with-caption w-full hover-image-zoom ${className}`}>
             <div className="thumb mb--20 w-full h-full">
                 <Link to={`/portfolio-detail/${project.id}`}>
-                    <img className="object-cover w-full h-full " src={thumb} alt={project.title} />
+                    <img className="object-cover object-cover h-64 w-96" src={thumb} alt={project.title} />
                 </Link>
                 <Link className="port-plus-view" to={`/portfolio-detail/${project.id}`}>&nbsp;</Link>
             </div>

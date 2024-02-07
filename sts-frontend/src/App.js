@@ -26,10 +26,6 @@ const App = () => {
         getFiles().then((files) => {
             dispatch({type: 'GET_FILES',  data: files.data})
         })
-        getFilesIds().then((files) => {
-            console.log(files)
-            dispatch({type: 'GET_FILES_IDS',  data: files.data})
-        })
     }, [])
     return (
             <Router>

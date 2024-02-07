@@ -1,16 +1,17 @@
-FROM nginx:alpine
+FROM node:14
 
+# set working directory
 WORKDIR /app
 
-COPY build /usr/share/nginx/html
-#!/bin/sh
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# COPY ./.nginx/nginx.conf /usr/share/nginx/nginx.conf
+# install app dependencies
+COPY package.json .
+COPY package-lock.json .
+RUN npm install --silent
 
-# ## Remove default nginx index page
-# RUN rm -rf /usr/share/nginx/html/*
+# copy source code
+COPY . .
 
-
-EXPOSE 3000 80
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD npm start

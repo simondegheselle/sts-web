@@ -6,11 +6,13 @@ import SectionTitle from "../../../components/section-title/SectionTitleOne";
 import Project from "../../../components/portfolio/PortfolioItemFour";
 import { useProjects } from '../../../project_context';
 import _ from 'lodash'
+
 const PortfolioFour = () => {
     const [activeServiceType, setActiveServiceType] = useState(-1);
     const { state } = useProjects()
 
     const projects = state.projects;
+
 
     return (
         <div className="bk-portfolio-with-caption-area ptb--120 ptb-md--80 ptb-sm--60 bg_color--1 bk-masonry-wrapper basic-thine-line">
@@ -23,10 +25,9 @@ const PortfolioFour = () => {
                     </div>
 
                     <div className='flex-1'>
-                        <div
-                            className="masonry-button-active masonry-button--2 text-left text-lg-right mt_md--40 mt_sm--40">
+                        <div className="masonry-button-active masonry-button--2 text-left text-lg-right mt_md--40 mt_sm--40">
                             <button data-filter="*" onClick={() => setActiveServiceType(-1)}>
-                                <span className="filter-text">All</span>
+                                <span className="filter-text bg-red ">All</span>
                                 <span className="filter-counter">{projects.length}</span>
                             </button>
 
